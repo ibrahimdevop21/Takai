@@ -14,16 +14,12 @@ export const headerData = {
       text: 'Products',
       links: [
         {
-          text: 'All Products',
-          href: getPermalink('/products'),
-        },
-        {
           text: 'TAKAI Premium',
-          href: getPermalink('/products/premium'),
+          href: getPermalink('/products#premium'),
         },
         {
           text: 'TAKAI Premium Plus',
-          href: getPermalink('/products/premium-plus'),
+          href: getPermalink('/products#premium-plus'),
         },
       ],
     },
@@ -49,8 +45,8 @@ export const footerData = {
       title: 'Products',
       links: [
         { text: 'All Products', href: getPermalink('/products') },
-        { text: 'TAKAI Premium', href: getPermalink('/products/premium') },
-        { text: 'TAKAI Premium Plus', href: getPermalink('/products/premium-plus') },
+        { text: 'TAKAI Premium', href: getPermalink('/products#premium') },
+        { text: 'TAKAI Premium Plus', href: getPermalink('/products#premium-plus') },
         { text: 'Technology', href: getPermalink('/technology') },
       ],
     },

@@ -1,0 +1,113 @@
+---
+// Mobile Menu Controller - Handles all mobile menu interactions
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let isOpen = false;
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const dropdownButtons = document.querySelectorAll('.nav-dropdown-trigger');
+    const navLinks = document.querySelectorAll('.nav-item');
+
+    console.log('Mobile menu controller initialized');
+    console.log('Menu button:', menuButton);
+    console.log('Mobile menu:', mobileMenu);
+
+    function toggle() {
+      if (isOpen) {
+        close();
+      } else {
+        open();
+      }
+    }
+
+    function open() {
+      isOpen = true;
+      console.log('Opening mobile menu...');
+      
+      // Update menu state
+      if (mobileMenu) {
+        console.log('Menu element found, showing menu');
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('block');
+      }
+
+      // Update burger button
+      if (menuButton) {
+        menuButton.classList.add('menu-open');
+        menuButton.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    function close() {
+      isOpen = false;
+      console.log('Closing mobile menu...');
+
+      // Update menu state
+      if (mobileMenu) {
+        mobileMenu.classList.remove('block');
+        mobileMenu.classList.add('hidden');
+      }
+
+      // Update burger button
+      if (menuButton) {
+        menuButton.classList.remove('menu-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    function toggleDropdown(e) {
+      e.preventDefault();
+      const button = e.currentTarget;
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      
+      // Close all other dropdowns
+      dropdownButtons.forEach(btn => {
+        if (btn !== button) {
+          btn.setAttribute('aria-expanded', 'false');
+          const content = btn.nextElementSibling;
+          if (content) {
+            content.classList.remove('open');
+            content.classList.add('hidden');
+          }
+        }
+      });
+
+      // Toggle current dropdown
+      button.setAttribute('aria-expanded', String(!expanded));
+      const content = button.nextElementSibling;
+      if (content) {
+        content.classList.toggle('open', !expanded);
+        content.classList.toggle('hidden', expanded);
+      }
+    }
+
+    // Event listeners
+    if (menuButton) {
+      menuButton.addEventListener('click', toggle);
+    }
+
+    // Dropdown toggles
+    dropdownButtons.forEach(button => {
+      button.addEventListener('click', toggleDropdown);
+    });
+
+    // Navigation links
+    navLinks.forEach(link => {
+      if (!link.classList.contains('nav-dropdown-trigger')) {
+        link.addEventListener('click', close);
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!isOpen) return;
+
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        close();
+      }
+    });
+  });
+</script>

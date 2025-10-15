@@ -1,8 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
+import LogoLight from '~/components/common/LogoLight.astro';
+import LogoDark from '~/components/common/LogoDark.astro';
+import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
+import BurgerMenu from '~/components/ui/BurgerMenu.astro';
+import MobileNavigation from '~/components/ui/MobileNavigation.astro';
+import MobileMenuController from '~/components/ui/MobileMenuController.astro';
 
 import { getHomePermalink } from '~/utils/permalinks';
 import { trimSlash, getAsset } from '~/utils/permalinks';
@@ -13,28 +19,40 @@ interface Link {
   href?: string;
   ariaLabel?: string;
   icon?: string;
+  links?: Array<{
+    text?: string;
+    href?: string;
+    ariaLabel?: string;
+    icon?: string;
+  }>;
 }
 
+interface ActionLink extends CallToAction {}
+
 interface MenuLink extends Link {
-  links?: Array<MenuLink>;
+  links?: Array<Link>;
 }
 
 export interface Props {
   id?: string;
   links?: Array<MenuLink>;
-  actions?: Array<CallToAction>;
+  actions?: Array<ActionLink>;
   isSticky?: boolean;
+  isDark?: boolean;
   isFullWidth?: boolean;
+  showToggleTheme?: boolean;
   showRssFeed?: boolean;
   position?: string;
 }
 
 const {
-  id = 'header',
+  id,
   links = [],
   actions = [],
   isSticky = false,
+  isDark = false,
   isFullWidth = false,
+  showToggleTheme = false,
   showRssFeed = false,
   position = 'center',
 } = Astro.props;
@@ -43,120 +61,118 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 ---
 
 <header
-  class:list={[
-    { sticky: isSticky, relative: !isSticky },
-    'top-0 z-40 flex-none mx-auto w-full bg-takai-blue text-white border-b border-takai-gold/20 transition-[opacity] ease-in-out',
-  ]}
-  {...isSticky ? { 'data-aw-sticky-header': true } : {}}
-  {...id ? { id } : {}}
+  class="sticky top-0 z-50 bg-[#01407a] text-white shadow-sm transition-all duration-300"
+  id="main-header"
 >
-  <div class="absolute inset-0"></div>
-  <div
-    class:list={[
-      'relative text-default py-2 px-3 md:px-6 mx-auto w-full',
-      {
-        'md:flex md:justify-between': position !== 'center',
-      },
-      {
-        'md:grid md:grid-cols-3 md:items-center': position === 'center',
-      },
-      {
-        'max-w-7xl': !isFullWidth,
-      },
-    ]}
-  >
-    <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-      <a class="flex items-center" href={getHomePermalink()}>
-        <Logo />
-      </a>
-      <div class="flex items-center md:hidden">
-        <ToggleMenu />
+  <div class="mx-auto flex items-center justify-between max-w-7xl px-8 py-3 gap-6">
+    
+    <!-- Logo -->
+    <a href={getHomePermalink()} class="flex items-center flex-shrink-0">
+      <div id="logo-container" class="relative">
+        <div id="logo-light">
+          <LogoLight />
+        </div>
       </div>
+    </a>
+
+    <!-- Mobile Burger Menu -->
+    <div class="flex items-center lg:hidden flex-shrink-0">
+      <BurgerMenu />
     </div>
-    <nav
-      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
-      aria-label="Main navigation"
-    >
-      <ul
-        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
-      >
+
+    <!-- Navigation Links -->
+    <nav class="flex-1 flex justify-center overflow-hidden hidden lg:flex">
+      <ul class="flex items-center gap-8 text-[1rem] tracking-wide font-medium whitespace-nowrap">
         {
-          links.map(({ text, href, links }) => (
-            <li class={links?.length ? 'dropdown' : ''}>
-              {links?.length ? (
+          links.map(({ text, href, links: subLinks }) => (
+            <li class={subLinks?.length ? 'relative group' : ''}>
+              {subLinks?.length ? (
                 <>
-                  <button
-                    type="button"
-                    class="text-white hover:text-takai-gold px-4 py-2 flex items-center whitespace-nowrap tracking-wide transition-colors duration-200"
-                  >
-                    {text}{' '}
-                    <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
+                  <button type="button" class="nav-link cursor-pointer">
+                    {text}
                   </button>
-                  <ul class="dropdown-menu md:backdrop-blur-md bg-takai-dark border border-takai-gold/20 rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:min-w-[200px] drop-shadow-xl">
-                    {links.map(({ text: text2, href: href2 }) => (
+                  <!-- Dropdown -->
+                  <ul class="absolute left-0 mt-2 hidden group-hover:block bg-[#01407a] border border-[#cfb063]/30 rounded-md min-w-[200px] shadow-xl py-1 z-[1000]">
+                    {subLinks.map(({ text: subText, href: subHref }) => (
                       <li>
-                        <a
-                          class:list={[
-                            'first:rounded-t last:rounded-b text-takai-white hover:bg-takai-gold/20 hover:text-takai-gold py-2 px-5 block whitespace-no-wrap tracking-wide transition-all duration-200',
-                            { 'aw-link-active': href2 === currentPath },
-                          ]}
-                          href={href2}
-                        >
-                          {text2}
+                        <a href={subHref} class="dropdown-link">
+                          {subText}
                         </a>
                       </li>
                     ))}
                   </ul>
                 </>
               ) : (
-                <a
-                  class:list={[
-                    'text-white hover:text-takai-gold px-4 py-2 flex items-center whitespace-nowrap tracking-wide transition-colors duration-200',
-                    { 'aw-link-active': href === currentPath },
-                  ]}
-                  href={href}
-                >
-                  {text}
-                </a>
+                <a href={href} class="nav-link">{text}</a>
               )}
             </li>
           ))
         }
       </ul>
     </nav>
-    <div
-      class:list={[
-        { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
-        'hidden md:self-center md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0 md:justify-self-end',
-      ]}
-    >
-      <div class="items-center flex justify-between w-full md:w-auto">
-        <div class="flex">
-          {/* Theme toggle removed for light-only theme */}
-          {
-            showRssFeed && (
-              <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                aria-label="RSS Feed"
-                href={getAsset('/rss.xml')}
-              >
-                <Icon name="tabler:rss" class="w-5 h-5" />
-              </a>
-            )
-          }
-        </div>
-        {
-          actions?.length ? (
-            <span class="ml-4 rtl:ml-0 rtl:mr-4">
-              {actions.map((btnProps) => (
-                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
-              ))}
-            </span>
-          ) : (
-            ''
-          )
-        }
-      </div>
+
+    <!-- CTA Button -->
+    <div class="flex-shrink-0 hidden lg:block">
+      {
+        actions?.length ? (
+          actions.map((btnProps) => (
+            <a
+              href={btnProps.href}
+              class="bg-[#cfb063] text-[#01407a] px-6 py-2.5 rounded-full font-semibold hover:bg-[#d6ba66] transition-all duration-200 shadow-md hover:shadow-lg"
+            >
+              {btnProps.text}
+            </a>
+          ))
+        ) : (
+          ''
+        )
+      }
     </div>
   </div>
+
+  <!-- Mobile Navigation -->
+  <MobileNavigation links={links} actions={actions} />
 </header>
+
+<!-- Mobile Menu Controller -->
+<MobileMenuController />
+
+<style>
+  .nav-link {
+    @apply text-white/90 hover:text-[#cfb063] transition-colors duration-200 relative;
+  }
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 -bottom-1 w-0 h-[2px] bg-[#cfb063] transition-all duration-300;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .dropdown-link {
+    @apply block px-5 py-2 text-white/90 hover:text-[#cfb063] hover:bg-white/5 transition-all duration-200;
+  }
+
+  header.scrolled {
+    @apply bg-white text-[#01407a] shadow-md;
+  }
+  header.scrolled .nav-link {
+    @apply text-[#01407a] hover:text-[#cfb063];
+  }
+  header.scrolled a.bg-[#cfb063] {
+    @apply text-[#01407a] bg-[#cfb063];
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  });
+</script>

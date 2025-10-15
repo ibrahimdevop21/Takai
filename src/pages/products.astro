@@ -1,0 +1,83 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<PageLayout metadata={{ title: "Products", description: "Explore TAKAI's full range of Japanese Paint Protection Films." }}>
+  <section class="max-w-6xl mx-auto px-6 py-16 space-y-24">
+    
+    <!-- Page Header -->
+    <div class="text-center space-y-3">
+      <h1 class="text-4xl md:text-5xl font-bold text-[#01407a]">TAKAI Protection Films</h1>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+        Discover the precision-engineered paint protection films developed in Japan — built for gloss, endurance, and self-healing performance.
+      </p>
+    </div>
+
+    <!-- TAKAI Premium -->
+    <div id="premium" class="grid md:grid-cols-2 gap-10 items-center">
+      <img src="/src/assets/images/premium-film.webp" alt="TAKAI Premium Film" class="rounded-xl shadow-lg" />
+      <div>
+        <h2 class="text-3xl font-semibold text-[#01407a] mb-3">TAKAI Premium</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          TAKAI Premium offers a flawless mirror finish, advanced UV resistance, and 10-year warranty protection.
+          Ideal for drivers who seek the perfect balance between aesthetics and long-term durability.
+        </p>
+        <ul class="space-y-2 text-gray-700">
+          <li class="flex items-center gap-2"><Icon name="tabler:shield-check" class="text-[#cfb063]" /> 10-Year Warranty</li>
+          <li class="flex items-center gap-2"><Icon name="tabler:sparkles" class="text-[#cfb063]" /> High Gloss Finish</li>
+          <li class="flex items-center gap-2"><Icon name="tabler:temperature" class="text-[#cfb063]" /> Superior Heat Resistance</li>
+          <li class="flex items-center gap-2"><Icon name="tabler:check" class="text-[#cfb063]" /> Ideal for all paint colors</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="border-[#cfb063]/30 my-12" />
+
+    <!-- TAKAI Premium Plus -->
+    <div id="premium-plus" class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse">
+      <img src="/src/assets/images/premium-plus-film.webp" alt="TAKAI Premium Plus Film" class="rounded-xl shadow-lg" />
+      <div>
+        <h2 class="text-3xl font-semibold text-[#01407a] mb-3">TAKAI Premium Plus</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          TAKAI Premium Plus is Japan's first film engineered specifically for electric and high-performance vehicles.
+          Designed with advanced nanotechnology and self-healing properties, it ensures maximum thermal protection and long-term clarity.
+        </p>
+        <ul class="space-y-2 text-gray-700">
+          <li class="flex items-center gap-2"><Icon name="tabler:shield-check" class="text-[#cfb063]" /> 15-Year Warranty</li>
+          <li class="flex items-center gap-2"><Icon name="tabler:bolt" class="text-[#cfb063]" /> Designed for Electric & Luxury Cars</li>
+          <li class="flex items-center gap-2"><Icon name="tabler:flame" class="text-[#cfb063]" /> Superior Heat & UV Isolation</li>
+          <li class="flex items-center gap-2"><Icon name="tabler:rotate-clockwise" class="text-[#cfb063]" /> Self-Healing Surface Layer</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center mt-16">
+      <a
+        href="/contact"
+        class="inline-block bg-[#cfb063] text-[#01407a] px-8 py-3 rounded-full font-semibold hover:bg-[#d6ba66] transition-all duration-300 shadow-md hover:shadow-lg"
+      >
+        Contact an Installer
+      </a>
+    </div>
+  </section>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Enable smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</PageLayout>
