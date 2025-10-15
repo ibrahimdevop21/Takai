@@ -9,12 +9,12 @@ const { isOpen = false, class: className = '' } = Astro.props;
 
 <button
   class:list={[
-    'relative flex flex-col justify-center items-center w-11 h-11 bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-[#cfb063]/50 rounded-md transition-all duration-200 hover:bg-white/10',
+    'text-white hover:text-[#cfb063] p-3 rounded-lg border-2 border-white shadow-lg bg-[#01407a] focus:outline-none focus:ring-2 focus:ring-[#cfb063]/50 transition-all duration-200',
     className
   ]}
   id="mobile-menu-button"
   data-mobile-menu-button
-  aria-label="Toggle navigation menu"
+  aria-label="Toggle menu"
   aria-expanded={isOpen}
   type="button"
 >

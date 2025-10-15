@@ -1,113 +1,55 @@
 ---
-// Mobile Menu Controller - Handles all mobile menu interactions
+// TAKAI Mobile Menu Controller - Robust version for reliable mobile menu behavior
 ---
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    let isOpen = false;
+<script is:inline>
+  const setupTakaiMobileMenu = () => {
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    const dropdownButtons = document.querySelectorAll('.nav-dropdown-trigger');
-    const navLinks = document.querySelectorAll('.nav-item');
+    if (!menuButton || !mobileMenu) return false;
 
-    console.log('Mobile menu controller initialized');
-    console.log('Menu button:', menuButton);
-    console.log('Mobile menu:', mobileMenu);
+    let isOpen = false;
 
-    function toggle() {
-      if (isOpen) {
-        close();
-      } else {
-        open();
-      }
-    }
-
-    function open() {
+    const open = () => {
       isOpen = true;
-      console.log('Opening mobile menu...');
-      
-      // Update menu state
-      if (mobileMenu) {
-        console.log('Menu element found, showing menu');
-        mobileMenu.classList.remove('hidden');
-        mobileMenu.classList.add('block');
-      }
+      mobileMenu.classList.remove('translate-x-full');
+      mobileMenu.classList.add('translate-x-0');
+      menuButton.classList.add('menu-open');
+      menuButton.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
 
-      // Update burger button
-      if (menuButton) {
-        menuButton.classList.add('menu-open');
-        menuButton.setAttribute('aria-expanded', 'true');
-      }
-    }
-
-    function close() {
+    const close = () => {
       isOpen = false;
-      console.log('Closing mobile menu...');
+      mobileMenu.classList.remove('translate-x-0');
+      mobileMenu.classList.add('translate-x-full');
+      menuButton.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
 
-      // Update menu state
-      if (mobileMenu) {
-        mobileMenu.classList.remove('block');
-        mobileMenu.classList.add('hidden');
-      }
-
-      // Update burger button
-      if (menuButton) {
-        menuButton.classList.remove('menu-open');
-        menuButton.setAttribute('aria-expanded', 'false');
-      }
-    }
-
-    function toggleDropdown(e) {
+    const toggle = (e) => {
       e.preventDefault();
-      const button = e.currentTarget;
-      const expanded = button.getAttribute('aria-expanded') === 'true';
-      
-      // Close all other dropdowns
-      dropdownButtons.forEach(btn => {
-        if (btn !== button) {
-          btn.setAttribute('aria-expanded', 'false');
-          const content = btn.nextElementSibling;
-          if (content) {
-            content.classList.remove('open');
-            content.classList.add('hidden');
-          }
-        }
-      });
+      e.stopPropagation();
+      isOpen ? close() : open();
+    };
 
-      // Toggle current dropdown
-      button.setAttribute('aria-expanded', String(!expanded));
-      const content = button.nextElementSibling;
-      if (content) {
-        content.classList.toggle('open', !expanded);
-        content.classList.toggle('hidden', expanded);
-      }
-    }
-
-    // Event listeners
-    if (menuButton) {
-      menuButton.addEventListener('click', toggle);
-    }
-
-    // Dropdown toggles
-    dropdownButtons.forEach(button => {
-      button.addEventListener('click', toggleDropdown);
+    menuButton.addEventListener('click', toggle);
+    document.addEventListener('keydown', (e) => e.key === 'Escape' && isOpen && close());
+    document.addEventListener('click', (e) => {
+      if (isOpen && !mobileMenu.contains(e.target) && !menuButton.contains(e.target)) close();
     });
 
-    // Navigation links
-    navLinks.forEach(link => {
-      if (!link.classList.contains('nav-dropdown-trigger')) {
-        link.addEventListener('click', close);
-      }
-    });
+    // Close when any nav link clicked
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (!isOpen) return;
+    return true;
+  };
 
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        close();
-      }
-    });
-  });
+  // Retry initialization to handle Astro rehydration and page swaps
+  const initObserver = () => {
+    if (!setupTakaiMobileMenu()) setTimeout(initObserver, 100);
+  };
+  document.addEventListener('astro:after-swap', initObserver);
+  document.addEventListener('DOMContentLoaded', initObserver);
 </script>
