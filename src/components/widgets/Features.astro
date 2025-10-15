@@ -1,36 +1,78 @@
 ---
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import ItemGrid from '~/components/ui/ItemGrid.astro';
-import Headline from '~/components/ui/Headline.astro';
-import type { Features as Props } from '~/types';
-
-const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
-  tagline = await Astro.slots.render('tagline'),
-  items = [],
-  columns = 2,
-
-  defaultIcon,
-
-  id,
-  isDark = false,
-  classes = {},
-  bg = await Astro.slots.render('bg'),
-} = Astro.props;
+// TAKAI Features Component - Premium Protection Benefits
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
-  <ItemGrid
-    items={items}
-    columns={columns}
-    defaultIcon={defaultIcon}
-    classes={{
-      container: '',
-      title: 'md:text-[1.3rem]',
-      icon: 'text-white bg-primary rounded-full w-10 h-10 p-2 md:w-12 md:h-12 md:p-3 mr-4 rtl:ml-4 rtl:mr-0',
-      ...((classes?.items as Record<string, never>) ?? {}),
-    }}
-  />
-</WidgetWrapper>
+<section id="why-takai" class="bg-[#f9f9f9] py-20">
+  <div class="max-w-6xl mx-auto px-6 text-center space-y-12">
+    <h2 class="text-4xl md:text-5xl font-bold text-[#01407a]">
+      Built for Perfection. Engineered to Endure.
+    </h2>
+    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+      TAKAI paint protection films are born from Japanese engineering excellence — combining beauty, precision, and technology to preserve your car's true identity for years to come.
+    </p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-16 text-left">
+      
+      <div class="space-y-3">
+        <div class="w-12 h-12 flex items-center justify-center bg-[#cfb063] text-[#01407a] rounded-full font-bold text-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-[#01407a]">Unmatched Clarity & Gloss</h3>
+        <p class="text-gray-700 leading-relaxed">
+          TAKAI films enhance your car's natural color with an ultra-smooth, high-gloss finish — maintaining a showroom shine under every light and angle.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="w-12 h-12 flex items-center justify-center bg-[#cfb063] text-[#01407a] rounded-full font-bold text-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-[#01407a]">Japanese Nanotechnology</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Every layer is engineered for performance — from heat isolation to UV rejection — ensuring your paint remains untouched even under extreme climates.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="w-12 h-12 flex items-center justify-center bg-[#cfb063] text-[#01407a] rounded-full font-bold text-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-[#01407a]">Self-Healing Durability</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Fine scratches and swirl marks vanish under sunlight or gentle heat. TAKAI films recover their perfect surface without effort or chemicals.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="w-12 h-12 flex items-center justify-center bg-[#cfb063] text-[#01407a] rounded-full font-bold text-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-[#01407a]">Long-Term Warranty & Confidence</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Backed by up to 15 years of warranty coverage, TAKAI protection ensures peace of mind and long-term value for your investment.
+        </p>
+      </div>
+
+      <div class="space-y-3 sm:col-span-2 lg:col-span-1">
+        <div class="w-12 h-12 flex items-center justify-center bg-[#cfb063] text-[#01407a] rounded-full font-bold text-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8m4-4H8"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-[#01407a]">Installed by Certified Experts</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Each TAKAI partner is trained to Japanese precision standards — guaranteeing consistency, safety, and respect for your car's craftsmanship.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -131,7 +131,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   </div>
 
   <!-- Mobile Navigation -->
-  <MobileNavigation links={links} actions={actions} />
+  <MobileNavigation links={links} actions={actions as any} />
 </header>
 
 <!-- Mobile Menu Controller -->
@@ -168,10 +168,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+      const scrolled = window.scrollY > 20;
+      if (header) {
+        header.classList.toggle('bg-white', scrolled);
+        header.classList.toggle('shadow-md', scrolled);
       }
     });
   });

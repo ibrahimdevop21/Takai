@@ -39,7 +39,7 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="text-lg text-gray-700">
+      <span class="text-lg text-gray-800 font-medium">
         Premium paint protection film engineered for extreme environments. Protect your investment with TAKAI's advanced technology and superior durability.
       </span>
     </Fragment>
@@ -47,7 +47,10 @@ const metadata = {
 
   <!-- Note Widget ******************* -->
 
-  <Note title="TAKAI Promise:" description="Superior Protection, Unmatched Durability, Professional Installation" />
+  <Note 
+    title="TAKAI Promise:" 
+    description="Superior Protection, Unmatched Durability, Professional Installation"
+  />
 
   <!-- Features Widget *************** -->
 
@@ -56,6 +59,10 @@ const metadata = {
     tagline="Protection"
     title="Why Choose TAKAI Paint Protection Film"
     subtitle="Industry-leading technology and superior materials engineered for the most demanding conditions and premium vehicles."
+    classes={{
+      title: 'text-[#01407a]',
+      subtitle: 'text-gray-800 font-medium'
+    }}
     items={[
       {
         title: 'Self-Healing Technology',
@@ -102,6 +109,10 @@ const metadata = {
     isReversed
     tagline="Technology"
     title="TAKAI Premium: Advanced Protection Technology"
+    classes={{
+      title: 'text-[#01407a]',
+      tagline: 'text-[#cfb063]'
+    }}
     items={[
       {
         title: 'Multi-Layer Construction',
@@ -119,14 +130,22 @@ const metadata = {
           'Comprehensive warranty coverage against yellowing, cracking, peeling, and hazing backed by rigorous testing standards.',
       },
     ]}
+    classes={{
+      items: {
+        title: 'text-[#01407a] font-semibold',
+        description: 'text-gray-800'
+      }
+    }}
     image={{
       src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
       alt: 'Paint protection film installation',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight text-takai-blue sm:text-3xl mb-2">Engineered for Excellence</h3>
-      Advanced materials and precision manufacturing deliver uncompromising protection for your most valuable assets.
+      <h3 class="text-2xl font-bold tracking-tight text-[#01407a] sm:text-3xl mb-2">Engineered for Excellence</h3>
+      <p class="text-gray-800 font-medium">
+        Advanced materials and precision manufacturing deliver uncompromising protection for your most valuable assets.
+      </p>
     </Fragment>
 
     <Fragment slot="bg">
@@ -140,6 +159,10 @@ const metadata = {
     isAfterContent
     tagline="Products"
     title="TAKAI Product Range"
+    classes={{
+      title: 'text-[#01407a]',
+      tagline: 'text-[#cfb063]'
+    }}
     items={[
       {
         title: 'TAKAI Premium',
@@ -161,14 +184,22 @@ const metadata = {
           'Complete installer toolkit including squeegees, heat guns, and cutting tools designed specifically for TAKAI film application.',
       },
     ]}
+    classes={{
+      items: {
+        title: 'text-[#01407a] font-semibold',
+        description: 'text-gray-800'
+      }
+    }}
     image={{
       src: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
       alt: 'Luxury sports car with paint protection',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight text-takai-blue sm:text-3xl mb-2">Complete Protection Solutions</h3>
-      From premium passenger vehicles to commercial fleets, TAKAI offers comprehensive protection for every application.
+      <h3 class="text-2xl font-bold tracking-tight text-[#01407a] sm:text-3xl mb-2">Complete Protection Solutions</h3>
+      <p class="text-gray-800 font-medium">
+        From premium passenger vehicles to commercial fleets, TAKAI offers comprehensive protection for every application.
+      </p>
     </Fragment>
 
     <Fragment slot="bg">
@@ -183,31 +214,41 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Enhanced user engagement',
+        title: 'Uncompromising Protection',
         description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
+          'TAKAI films provide invisible armor against road debris, UV rays, and environmental contaminants while maintaining your car\'s original beauty.',
       },
       {
-        title: 'Continuous improvement',
+        title: 'Japanese Precision Standards',
         description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
+          'Every installation follows meticulous Japanese craftsmanship principles, ensuring flawless application and long-lasting performance.',
       },
       {
-        title: 'Time and resource efficiency',
+        title: 'Investment in Excellence',
         description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
+          'Preserve your vehicle\'s resale value and pristine appearance with premium protection that pays for itself over time.',
       },
       {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
+        title: 'Certified Network Support',
+        description: `Join the TAKAI family with access to certified installers, comprehensive warranties, and ongoing support for your protection investment.`,
       },
     ]}
+    classes={{
+      items: {
+        title: 'text-[#01407a] font-semibold',
+        description: 'text-gray-800'
+      }
+    }}
     image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
+      src: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Luxury Car with TAKAI Protection',
     }}
   >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
+    <Fragment slot="content">
+      <p class="text-gray-800 font-medium text-lg">
+        Engineered for automotive excellence and lasting protection.
+      </p>
+    </Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -217,7 +258,10 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+    title="Experience TAKAI Precision in Every Step"
+    classes={{
+      title: 'text-[#01407a]'
+    }}
     items={[
       {
         title: 'Step 1: <span class="font-medium">Download</span>',
@@ -253,9 +297,14 @@ const metadata = {
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    subtitle="Common questions about TAKAI paint protection films and our installation process."
     tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
+    classes={{ 
+      container: 'max-w-6xl',
+      title: 'text-[#01407a]',
+      subtitle: 'text-gray-800 font-medium',
+      tagline: 'text-[#cfb063]'
+    }}
     items={[
       {
         title: 'Why AstroWind?',
@@ -294,10 +343,10 @@ const metadata = {
 
   <Stats
     stats={[
-      { title: 'Vehicles Protected', amount: '50K+' },
-      { title: 'Certified Installers', amount: '500+' },
+      { title: 'Vehicles Protected', amount: '1M+' },
+      { title: 'Certified Installers', amount: '5K+' },
       { title: 'Countries Served', amount: '25+' },
-      { title: 'Years Experience', amount: '15+' },
+      { title: 'Years Experience', amount: '40+' },
     ]}
   />
 
