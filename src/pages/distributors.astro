@@ -1,0 +1,220 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Distributors - TAKAI Paint Protection Films',
+  description: 'Find authorized TAKAI distributors and installers near you. Join our network of certified professionals.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <Hero
+    tagline="Find a Professional"
+    title="TAKAI Distributors & Installers"
+    subtitle="Locate certified TAKAI distributors and installers in your area for professional paint protection film installation."
+    actions={[
+      { text: 'Find Installer', href: '#find-installer', variant: 'primary' },
+      { text: 'Become a Partner', href: '#become-partner', variant: 'secondary' },
+    ]}
+  />
+
+  <!-- Why Choose Certified -->
+  <Features
+    id="certified-benefits"
+    title="Why Choose Certified Installers"
+    subtitle="Professional installation ensures optimal performance"
+    items={[
+      {
+        title: 'Expert Training',
+        description: 'Certified installers receive comprehensive training on TAKAI products and installation techniques.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Quality Guarantee',
+        description: 'Professional installation backed by TAKAI warranty and quality assurance.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Proper Tools',
+        description: 'Certified shops have the specialized tools and environment for perfect installation.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Ongoing Support',
+        description: 'Access to technical support and continued education on new products and techniques.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Warranty Coverage',
+        description: 'Full manufacturer warranty protection when installed by certified professionals.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Latest Products',
+        description: 'First access to new TAKAI products and technology innovations.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  />
+
+  <!-- Find Installer Section -->
+  <Content
+    id="find-installer"
+    isReversed
+    title="Find an Installer"
+    subtitle="Locate certified TAKAI professionals in your area"
+    items={[
+      {
+        title: 'Search by Location',
+        description: 'Enter your zip code or city to find the nearest certified TAKAI installer.',
+      },
+      {
+        title: 'Verified Professionals',
+        description: 'All listed installers are certified and regularly audited for quality standards.',
+      },
+      {
+        title: 'Direct Contact',
+        description: 'Get quotes and schedule installation directly with certified professionals.',
+      },
+    ]}
+  />
+
+  <!-- Become a Partner -->
+  <Steps
+    id="become-partner"
+    title="Become a TAKAI Partner"
+    subtitle="Join our network of certified distributors and installers"
+    items={[
+      {
+        title: 'Step 1: Application',
+        description: 'Submit your application with business information and experience details.',
+        icon: 'tabler:forms',
+      },
+      {
+        title: 'Step 2: Evaluation',
+        description: 'Our team reviews your application and conducts a facility assessment.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Step 3: Training',
+        description: 'Complete comprehensive training on TAKAI products and installation techniques.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Step 4: Certification',
+        description: 'Receive official TAKAI certification and access to distributor resources.',
+        icon: 'tabler:award',
+      },
+    ]}
+  />
+
+  <!-- Partner Benefits -->
+  <Features
+    id="partner-benefits"
+    title="Partner Benefits"
+    subtitle="Advantages of joining the TAKAI network"
+    items={[
+      {
+        title: 'Exclusive Territory',
+        description: 'Protected territory rights for authorized distributors in designated markets.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Marketing Support',
+        description: 'Co-op advertising, marketing materials, and promotional support.',
+        icon: 'tabler:speakerphone',
+      },
+      {
+        title: 'Technical Training',
+        description: 'Ongoing education and certification programs for you and your staff.',
+        icon: 'tabler:certificate-2',
+      },
+      {
+        title: 'Product Support',
+        description: 'Dedicated technical support and product development updates.',
+        icon: 'tabler:lifebuoy',
+      },
+      {
+        title: 'Business Development',
+        description: 'Sales training, business planning assistance, and growth strategies.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Quality Assurance',
+        description: 'Regular quality audits and performance feedback to maintain standards.',
+        icon: 'tabler:shield-star',
+      },
+    ]}
+  />
+
+  <!-- Requirements -->
+  <Content
+    title="Partnership Requirements"
+    subtitle="Qualifications for TAKAI certification"
+    items={[
+      {
+        title: 'Business Experience',
+        description: 'Minimum 2 years experience in automotive aftermarket or related industry.',
+      },
+      {
+        title: 'Facility Standards',
+        description: 'Clean, climate-controlled installation environment with proper lighting.',
+      },
+      {
+        title: 'Equipment Requirements',
+        description: 'Professional installation tools and equipment as specified by TAKAI.',
+      },
+      {
+        title: 'Insurance Coverage',
+        description: 'Appropriate business insurance including liability and garage keeper coverage.',
+      },
+    ]}
+  />
+
+  <!-- Regional Coverage -->
+  <Features
+    id="coverage"
+    title="Regional Coverage"
+    subtitle="TAKAI presence worldwide"
+    items={[
+      {
+        title: 'North America',
+        description: 'Comprehensive distributor network covering United States, Canada, and Mexico.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Europe',
+        description: 'Authorized distributors in major European markets and growing presence.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Asia Pacific',
+        description: 'Strong presence in key Asian markets with expanding distributor network.',
+        icon: 'tabler:world',
+      },
+    ]}
+  />
+
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Get Started?"
+    subtitle="Find an installer or join our network today"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Apply to Become Partner',
+        href: '/contact',
+      },
+      {
+        text: 'Contact Us',
+        href: '/contact',
+      },
+    ]}
+  />
+</Layout>

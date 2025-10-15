@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn {
+    @apply font-semibold rounded-md px-6 py-3 tracking-wide transition-all duration-200 inline-flex items-center justify-center;
+  }
+  
+  .btn-primary {
+    @apply bg-takai-gold text-takai-text hover:opacity-90 hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-takai-blue text-white border border-takai-gold hover:bg-takai-gold hover:text-takai-text;
+  }
+  
+  .btn-tertiary {
+    @apply bg-transparent text-takai-gold border border-takai-gold hover:bg-takai-gold hover:text-takai-text;
+  }
+}
+
 @layer utilities {
   .bg-page {
     background-color: var(--aw-color-bg-page);

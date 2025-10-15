@@ -12,11 +12,18 @@ export default {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
+        takai: {
+          blue: '#01407a',
+          gold: '#cfb063',
+          text: '#0e0e0e',
+          bg: '#ffffff',
+          border: '#d6d6d6',
+        },
       },
       fontFamily: {
-        sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        sans: ['InterVariable', 'var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        heading: ['InterVariable', 'var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
       },
 
       animation: {
@@ -37,5 +44,5 @@ export default {
       addVariant('intersect', '&:not([no-intersect])');
     }),
   ],
-  darkMode: 'class',
+  // darkMode: 'class', // Removed for light-only theme
 };

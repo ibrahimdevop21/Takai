@@ -4,16 +4,14 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'TAKAI - Premium Paint Protection Film for Challenging Conditions',
   ignoreTitleTemplate: true,
 };
 ---
@@ -25,78 +23,75 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Find a Distributor',
+        href: '/distributors',
+        icon: 'tabler:map-pin',
+        class: 'bg-takai-gold hover:bg-takai-gold/90 text-takai-blue font-semibold',
       },
-      { text: 'Learn more', href: '#features' },
+      { text: 'View Products', href: '/products' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', alt: 'Luxury car with paint protection film' }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro 5.0</span> + Tailwind CSS
+      <span class="text-takai-blue font-bold text-4xl lg:text-6xl">
+        TAKAI PRODUCTS FOR THE MOST CHALLENGING CONDITIONS
+      </span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 5.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+      <span class="text-lg text-gray-700">
+        Premium paint protection film engineered for extreme environments. Protect your investment with TAKAI's advanced technology and superior durability.
+      </span>
     </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
+  <Note title="TAKAI Promise:" description="Superior Protection, Unmatched Durability, Professional Installation" />
 
   <!-- Features Widget *************** -->
 
   <Features
     id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
+    tagline="Protection"
+    title="Why Choose TAKAI Paint Protection Film"
+    subtitle="Industry-leading technology and superior materials engineered for the most demanding conditions and premium vehicles."
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
+        title: 'Self-Healing Technology',
         description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
+          'Advanced polymer technology automatically repairs minor scratches and swirl marks when exposed to heat, maintaining a flawless finish.',
+        icon: 'tabler:refresh',
       },
       {
-        title: 'Ready-to-use Components',
+        title: 'UV Protection',
         description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
+          'Superior UV resistance prevents paint fading and oxidation, preserving your vehicle\'s color and value for years to come.',
+        icon: 'tabler:sun',
       },
       {
-        title: 'Best Practices',
+        title: 'Impact Resistance',
         description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
+          'Military-grade materials provide exceptional protection against rock chips, road debris, and environmental hazards.',
+        icon: 'tabler:shield-check',
       },
       {
-        title: 'Excellent Page Speed',
+        title: 'Hydrophobic Surface',
         description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
+          'Water-repelling properties make cleaning easier while reducing water spots and contamination adhesion.',
+        icon: 'tabler:droplet',
       },
       {
-        title: 'Search Engine Optimization (SEO)',
+        title: 'Optical Clarity',
         description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
+          'Crystal-clear film maintains your vehicle\'s original paint appearance while providing invisible protection.',
+        icon: 'tabler:eye',
       },
       {
-        title: 'Open to new ideas and contributions',
+        title: 'Professional Installation',
         description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+          'Certified installers ensure perfect fit and finish using precision cutting and expert application techniques.',
+        icon: 'tabler:certificate',
       },
     ]}
   />
@@ -105,37 +100,37 @@ const metadata = {
 
   <Content
     isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    tagline="Technology"
+    title="TAKAI Premium: Advanced Protection Technology"
     items={[
       {
-        title: 'Built on top of Astro 5.0',
+        title: 'Multi-Layer Construction',
         description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+          'Engineered with multiple protective layers including polyurethane top coat, adhesive layer, and release liner for maximum durability.',
       },
       {
-        title: 'Styled using Tailwind CSS',
+        title: 'Precision Pre-Cut Patterns',
         description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+          'Computer-generated templates ensure perfect fit for over 10,000 vehicle models with millimeter accuracy.',
       },
       {
-        title: 'Cross-browser compatibility',
+        title: '10-Year Warranty',
         description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+          'Comprehensive warranty coverage against yellowing, cracking, peeling, and hazing backed by rigorous testing standards.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Paint protection film installation',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <h3 class="text-2xl font-bold tracking-tight text-takai-blue sm:text-3xl mb-2">Engineered for Excellence</h3>
+      Advanced materials and precision manufacturing deliver uncompromising protection for your most valuable assets.
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-gray-50"></div>
     </Fragment>
   </Content>
 
@@ -143,36 +138,41 @@ const metadata = {
 
   <Content
     isAfterContent
+    tagline="Products"
+    title="TAKAI Product Range"
     items={[
       {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+        title: 'TAKAI Premium',
+        description: 'Our flagship paint protection film offering superior clarity, self-healing properties, and comprehensive coverage for luxury vehicles.',
       },
       {
-        title: 'Multiple layout possibilities',
+        title: 'TAKAI Premium Plus',
         description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+          'Enhanced formula with advanced hydrophobic coating and improved stain resistance for the ultimate protection experience.',
       },
       {
-        title: 'Fully responsive design',
+        title: 'Custom Solutions',
         description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
+          'Specialized applications for commercial fleets, motorcycles, and unique vehicle configurations with tailored protection packages.',
       },
       {
-        title: 'Integration of media',
+        title: 'Professional Tools',
         description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+          'Complete installer toolkit including squeegees, heat guns, and cutting tools designed specifically for TAKAI film application.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
+      src: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Luxury sports car with paint protection',
     }}
   >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight text-takai-blue sm:text-3xl mb-2">Complete Protection Solutions</h3>
+      From premium passenger vehicles to commercial fleets, TAKAI offers comprehensive protection for every application.
+    </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-gray-50"></div>
     </Fragment>
   </Content>
 
@@ -248,79 +248,6 @@ const metadata = {
     }}
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
 
   <!-- FAQs Widget ******************* -->
 
@@ -367,10 +294,10 @@ const metadata = {
 
   <Stats
     stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
+      { title: 'Vehicles Protected', amount: '50K+' },
+      { title: 'Certified Installers', amount: '500+' },
+      { title: 'Countries Served', amount: '25+' },
+      { title: 'Years Experience', amount: '15+' },
     ]}
   />
 
@@ -380,20 +307,24 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Find a Distributor',
+        href: '/distributors',
+        icon: 'tabler:map-pin',
+        class: 'bg-takai-gold hover:bg-takai-gold/90 text-takai-blue font-semibold px-8 py-3 text-lg',
+      },
+      {
+        text: 'Contact Us',
+        href: '/contact',
+        icon: 'tabler:phone',
       },
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      Ready to Protect Your Investment?
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      Join thousands of satisfied customers who trust TAKAI for superior paint protection. <br class="hidden md:inline" />Get started with a certified installer near you.
     </Fragment>
   </CallToAction>
 </Layout>

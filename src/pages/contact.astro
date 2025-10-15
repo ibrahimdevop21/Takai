@@ -1,78 +1,134 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import ContactWidget from '~/components/widgets/Contact.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contact - TAKAI Paint Protection Films',
+  description: 'Get in touch with TAKAI for product information, technical support, or partnership opportunities.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <!-- Hero Section -->
+  <Hero
+    tagline="Get in Touch"
+    title="Contact TAKAI"
+    subtitle="Whether you're looking for product information, technical support, or partnership opportunities, we're here to help."
+    actions={[
+      { text: 'Find Distributor', href: '/distributors', variant: 'primary' },
+      { text: 'Our Products', href: '/products', variant: 'secondary' },
+    ]}
+  />
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
-
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+  <!-- Contact Form -->
+  <ContactWidget
+    id="contact-form"
+    title="Send us a message"
+    subtitle="Our team of experts is ready to assist you with any questions about TAKAI paint protection films."
     inputs={[
       {
         type: 'text',
         name: 'name',
-        label: 'Name',
+        label: 'Full Name',
       },
       {
         type: 'email',
         name: 'email',
-        label: 'Email',
+        label: 'Email Address',
+      },
+      {
+        type: 'text',
+        name: 'company',
+        label: 'Company (Optional)',
+      },
+      {
+        type: 'text',
+        name: 'phone',
+        label: 'Phone Number (Optional)',
       },
     ]}
     textarea={{
       label: 'Message',
+      placeholder: 'Tell us about your inquiry, project, or how we can help you...',
     }}
     disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+      label: 'By submitting this form, you agree to our privacy policy and consent to being contacted by TAKAI.',
     }}
-    description="Our support team typically responds within 24 business hours."
+    description="We typically respond within 24 hours during business days."
   />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Contact Information -->
+  <div class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-takai-blue mb-4">Multiple Ways to Reach Us</h2>
+        <p class="text-gray-600">Choose the contact method that works best for you</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="text-takai-gold mb-4">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-takai-blue mb-2">Technical Support</h3>
+          <p class="text-gray-600">Get help with product specifications, installation guidance, and technical questions.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="text-takai-gold mb-4">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H7z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-takai-blue mb-2">Sales Inquiries</h3>
+          <p class="text-gray-600">Product information, pricing, and availability for distributors and installers.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="text-takai-gold mb-4">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16c-.8 0-1.54.37-2.01 1l-2.7 3.6L8.5 11l1.8-2.4A1.5 1.5 0 0 1 11.5 8h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.8 0-1.54.37-2.01 1L6.5 12 4 10v12h2v-6l2.5 2L12 22h8z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-takai-blue mb-2">Partnership Opportunities</h3>
+          <p class="text-gray-600">Interested in becoming a TAKAI distributor or certified installer? Let's talk.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="text-takai-gold mb-4">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-takai-blue mb-2">Phone Support</h3>
+          <p class="text-gray-600">+1 (555) TAKAI-01 | Monday - Friday, 8:00 AM - 6:00 PM EST</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="text-takai-gold mb-4">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-takai-blue mb-2">Email Support</h3>
+          <p class="text-gray-600">info@takai-ppf.com | We respond within 24 hours</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="text-takai-gold mb-4">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-takai-blue mb-2">Corporate Office</h3>
+          <p class="text-gray-600">TAKAI Paint Protection Films | 123 Innovation Drive, Technology Park, CA 90210</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <Features2
-    title="We are here to help!"
+  <!-- Additional Support -->
+  <Content
+    title="Additional Resources"
+    subtitle="Find answers and support"
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+        title: 'Installation Training',
+        description: 'Comprehensive training programs for new and existing installers.',
       },
       {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+        title: 'Technical Documentation',
+        description: 'Access installation guides, product specifications, and best practices.',
       },
       {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
+        title: 'Warranty Support',
+        description: 'Get assistance with warranty claims and product performance issues.',
       },
     ]}
   />
